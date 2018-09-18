@@ -1,0 +1,79 @@
+$color1: #fff;
+body{
+	background-color: #ccc;
+	color: $color1;
+	font-size: 1em;
+}
+h1{
+	border: 1px solid #000;
+	border-radius: 25px;
+	border-color: #fff;
+	width: auto;
+	text-align: center;
+}
+@mixin element1 {
+  column-count: 2;
+  column-width: 75px;
+  column-gap: 20px;
+  column-rule: 1px solid #fff;
+}
+p{
+	@include element1;
+}
+.wrapper{
+	max-width: 1000px;
+	margin: 0 auto;
+	color: #000;
+}
+.container{
+	display: flex;
+}
+header{
+	background-color: tomato;
+}
+.main{
+	background-color: pink;
+	width: 70%;
+}
+.side{
+	background-color: orange;
+	width: 30%;
+}
+footer{
+	background-color: plum;
+}
+
+.grid{
+	display: grid;
+	grid-gap: 10px;
+	grid-template-columns: 2fr minmax(180px,1fr);
+}
+article.main{
+background-color: blue;
+background-image: url(img/logo.svg);
+background-size: cover;
+background-repeat: no-repeat;
+}
+section.side{
+	background-color: green;
+}
+article.main,
+article.side{
+/*border: 1px solid #ccc;*/
+/*border-radius: 10px;*/
+}
+
+@media (max-width: 400px){
+	.grid{
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 600px){
+	.container{
+	flex-direction: column;
+	}
+	.main,.side{
+		width: 100%;
+	}
+}
